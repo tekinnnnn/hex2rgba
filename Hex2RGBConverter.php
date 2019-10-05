@@ -1,19 +1,10 @@
 <?php
 
 /**
- * Class HexConverter
+ * Class Hex2RGBConverter
  */
-
 class Hex2RGBConverter
 {
-    /**
-     * #FFF 0.3 (string) rgba(255, 255, 255, .3)
-     * #FFFFFF 1 (integer) rgba(255, 255, 255, 1)
-     * FFF .5 (string) rgba(255, 255, 255, .5)
-     * FFFFFF 1 (integer) rgba(255, 255, 255, 1)
-     * FFFFF 1 (integer) throws Error
-     */
-
     private $hexCode;
     private $red;
     private $green;
@@ -24,7 +15,7 @@ class Hex2RGBConverter
      * HexConverter constructor.
      *
      * @param string $hexCode
-     * @param int    $alpha
+     * @param string|int    $alpha
      */
     public function __construct($hexCode, $alpha = 1)
     {
@@ -35,6 +26,12 @@ class Hex2RGBConverter
         $this->setRedGreenBlue();
     }
 
+    /**
+     * @param string $hexCode
+     * @param string|int $alpha
+     *
+     * @return bool
+     */
     private function validateInputs($hexCode, $alpha)
     {
         return $this->validateHexFormat($hexCode) && $this->validateAlphaFormat($alpha);
@@ -80,6 +77,9 @@ class Hex2RGBConverter
         return $this->alpha = ltrim((double)$alpha, 0);
     }
 
+    /**
+     * @return void
+     */
     private function setRedGreenBlue()
     {
         list($this->red, $this->green, $this->blue)
@@ -91,11 +91,17 @@ class Hex2RGBConverter
         );
     }
 
+    /**
+     * @return string
+     */
     public function toRGB()
     {
         return sprintf('rgb(%d, %d, %d)', $this->red, $this->green, $this->blue);
     }
 
+    /**
+     * @return string
+     */
     public function toRGBA()
     {
         return sprintf('rgba(%d, %d, %d, %s)', $this->red, $this->green, $this->blue, $this->alpha);
