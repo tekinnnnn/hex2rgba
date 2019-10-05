@@ -2,14 +2,6 @@
 
 require_once __DIR__ . '/Hex2RGBConverter.php';
 
-/**
- * #FFF 0.3 (string) rgba(255, 255, 255, .3)
- * #FFFFFF 1 (integer) rgba(255, 255, 255, 1)
- * FFF .5 (string) rgba(255, 255, 255, .5)
- * FFFFFF 1 (integer) rgba(255, 255, 255, 1)
- * FFFFF 1 (integer) throws Error
- */
-
 $converter = new Hex2RGBConverter('#FFF', '0.3');
 echo "Input : '#FFF', '0.3'" . PHP_EOL;
 echo $converter->toRGB() . PHP_EOL;
