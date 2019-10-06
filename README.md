@@ -26,3 +26,4 @@ echo $converter->toRGBA() . PHP_EOL; # rgba(255, 255, 255, 1)
 $converter = new Hex2RGBConverter('FFFFF', 1);
 echo $converter->toRGB() . PHP_EOL; # throws Exception
 echo $converter->toRGBA() . PHP_EOL; # throws Exception
+```

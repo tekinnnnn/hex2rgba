@@ -14,8 +14,8 @@ class Hex2RGBConverter
     /**
      * HexConverter constructor.
      *
-     * @param string $hexCode
-     * @param string|int    $alpha
+     * @param string     $hexCode
+     * @param string|int $alpha
      */
     public function __construct($hexCode, $alpha = 1)
     {
@@ -27,7 +27,7 @@ class Hex2RGBConverter
     }
 
     /**
-     * @param string $hexCode
+     * @param string     $hexCode
      * @param string|int $alpha
      *
      * @return bool
@@ -84,11 +84,11 @@ class Hex2RGBConverter
     {
         list($this->red, $this->green, $this->blue)
             = array_map(
-            function ($charGroup) {
-                return hexdec($charGroup);
-            },
-            str_split($this->hexCode, 2)
-        );
+                function ($charGroup) {
+                    return hexdec($charGroup);
+                },
+                str_split($this->hexCode, 2)
+            );
     }
 
     /**
