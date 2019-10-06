@@ -64,14 +64,14 @@ class Hex2RGBConverter
     }
 
     /**
-     * @param $alpha
+     * @param string|int $alpha
      *
      * @return mixed
      */
     private function validateAlphaFormat($alpha)
     {
         if (false === preg_match('/^\d?\.?\d$/', $alpha)) {
-            throw new Error("non-standard alpha code : $alpha");
+            throw new Error("non-standard alpha code : {$alpha}");
         }
 
         return $this->alpha = ltrim((double)$alpha, 0);
